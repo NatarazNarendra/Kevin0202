@@ -1,0 +1,29 @@
+Hibernate Session get() vs load() difference with examples
+
+public class HibernateGetVsLoad {
+
+	public static void main(String[] args) {
+		
+		//Prep Work
+		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+		Session session = sessionFactory.openSession();
+		Transaction tx = session.beginTransaction();
+		
+		//Get Example
+		Employee emp = (Employee) session.get(Employee.class, new Long(2));
+		System.out.println("Employee get called");
+		System.out.println("Employee ID= "+emp.getId());
+		System.out.println("Employee Get Details:: "+emp+"\n");
+		
+		//load Example
+		Employee emp1 = (Employee) session.load(Employee.class, new Long(1));
+		System.out.println("Employee load called");
+		System.out.println("Employee ID= "+emp1.getId());
+		System.out.println("Employee load Details:: "+emp1+"\n");
+		Hibernate Session provide different methods to fetch data from database. Two of them are – get() and load(). There are also a lot of overloaded methods for these, that we can use in different circumstances.
+At first look both get() and load() seems similar because both of them fetch the data from database, however there are few differences between them, let’s look at them with a simple example.
+		//Close resources
+		tx.commit();
+		sessionFactory.close();
+	}
+}
