@@ -1,0 +1,64 @@
+ class InSufficientFundException extends RuntimeException {
+ 
+    private String message;
+ 
+    public InSufficientFundException(String message) {
+        this.message = message;
+    }
+ 
+    public InSufficientFundException(Throwable cause, String message) {
+        super(cause);
+        this.message = message;
+    }
+ 
+    public String getMessage() {
+        return message;
+    }
+ 
+}
+
+public class Account {
+ 
+    private int balance = 1222;
+    
+    public static void main(String args[]) {
+        Account acct = new Account();
+        System.out.println("Current balance : " + acct.balance());
+        System.out.println("Withdrawing $200");
+        acct.withdraw(200);
+        System.out.println("Current balance : " + acct.balance());
+        acct.withdraw(300);
+        acct.deposit(0);
+    }
+ 
+    public int balance() {
+        return balance;
+    }
+ 
+    public void withdraw(int amount) throws InSufficientFundException {
+        if (amount > balance) {
+            throw new InSufficientFundException(String.format(
+                    "Current balance %d is less than requested amount %d",
+                    balance, amount));
+        }
+        balance = balance - amount;
+    }
+ 
+    public void deposit(int amount) {
+        if (amount <= 0) {
+            throw new IllegalArgumentException(String.format(
+                    "Invalid deposit amount %s", amount));
+        }
+    }
+ 
+}
+
+output:
+$javac Account.java
+$java -Xmx128M -Xms16M Account
+Current balance : 1222
+Withdrawing $200
+Current balance : 1022
+Exception in thread "main" java.lang.IllegalArgumentException: Invalid deposit amount 0
+	at Account.deposit(Account.java:49)
+	at Account.main(Account.java:31)
