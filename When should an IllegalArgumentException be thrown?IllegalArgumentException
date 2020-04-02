@@ -1,0 +1,16 @@
+The IllegalArgumentException in Java
+The IllegalArgumentException is a good way of handling possible errors in your application’s code.
+This exception indicates that a method is called with incorrect input arguments. 
+Then, the only thing you must do is correct the values of the input parameters. In order to achieve that,
+follow the call stack found in the stack trace and check which method produced the invalid argument.
+
+
+This exception extends the RuntimeException class and thus belongs to 
+those exceptions that can be thrown during the operation of the Java Virtual Machine (JVM).
+It is an unchecked exception and thus, it does not need to be declared in a method’s or a constructor’s throws clause. 
+Finally, the IllegalArgumentException exists since the first version of Java (1.0).
+ How to deal with the java.lang.IllegalArgumentException
+When the IllegalArgumentException is thrown, you must check the call stack in Java’s stack trace and locate the method that produced the wrong argument.
+The IllegalArgumentException is very useful and can be used to avoid situations where your application’s code would have to deal with unchecked input data.
+
+https://examples.javacodegeeks.com/java-basics/exceptions/java-lang-illegalargumentexception-how-to-solve-illegal-argument-exception/
