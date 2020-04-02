@@ -1,0 +1,15 @@
+
+There's two types of exceptions:
+
+runtime exceptions (like IllegalArgumentException and NullPointerException for example) don't need to be explicitly caught,
+because they 'shouldn't happen'. When they do, of course, you need to handle them somewhere.
+
+regular exceptions NEED to be caught or declared to be thrown because they represent a more intrinsically difficult kind of error.
+
+n this post, we feature a comprehensive example of java.lang.NullPointerException – Java Null Pointer Exception. In Java, a special null value can be assigned to an object’s reference and denotes that the object is currently pointing to an unknown piece of data. A java.lang.NullPointerException is thrown when an application is trying to use or access an object whose reference equals to null. The following cases throw Null Pointer exception:
+
+Invoking a method from a null object.
+Accessing or modifying a null object’s field.
+Taking the length of null, as if it were an array.
+Accessing or modifying the slots of null object, as if it were an array.
+https://examples.javacodegeeks.com/java-lang-nullpointerexception-example/
