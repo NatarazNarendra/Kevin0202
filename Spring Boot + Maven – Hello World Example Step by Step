@@ -1,0 +1,31 @@
+
+I am going to explain the steps to create a Spring Boot hello world application using Spring Tool Suite(STS) and Maven.
+Friends follow this article carefully, as this is the first spring boot application I am going to explain each and 
+every step with screenshot, from the next tutorial on words, I will directly start with directory structure.
+Explanation
+•	I have added spring-boot-starter-parent, spring-boot-starter-web and I want to show Spring Boot tutorials in Java 8,
+so I have added java version at line number 21
+•	What is spring-boot-starter-parent? actually this is an existing project given by spring team which contains
+Spring Boot supporting configuration data (remember just configuration data, it wont download any jars), 
+we have added this in a <parent> tag means, we are instructing Maven to consider our SpringBootHelloWorld project as a child to it, 
+wait for a second, I will show you practically why we have to add spring-boot-starter-parent as parent  
+did you observe lines 13-18 of pom.xml? I haven’t included version number for spring-boot-starter-web 🙂 
+but maven downloaded some jar files with some version(s) related to spring-boot-starter-web, how its possible? that’s because of Maven’s parent child relation. While adding spring boot parent project, I have included version as 1.5.6.RELEASE, so again we no need to add version numbers for the dependencies.  As I told you earlier, spring-boot-starter-parent contains configuration meta data, this means, it knows which version of dependency need to be downloaded.  So we no need to worry about dependencies versions., which will save lot of our time
+
+@SpringBootApplication
+
+public class SpringBootApp 
+{
+     public static void main(String[] args) 
+     {
+         SpringApplication.run(SpringBootApp.class, args);
+
+     }
+}
+
+•	In line number 6, I have added @SpringBootApplication annotation, 
+means this is the starting point for our Spring Boot application
+•	In line number 11, I am bootstrapping the application
+For now just remember, for every spring boot application we have to create a main class and that need to be annotate with
+@SpringBootApplication and bootstrap it 🙂
+
